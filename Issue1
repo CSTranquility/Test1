@@ -1,0 +1,41 @@
+
+class Program
+    {
+        
+
+        static void Main(string[] args)
+        {
+            Game game = new Game();
+            game.StartGame();
+        }
+    }
+public class Game
+        {
+            private bool[] isDoorOpened = new bool[3] { false, false, false };
+
+            private string[] Question = { "Кто вы?", "Что вы хотите?", "Чем вы можете помочь ордену?" };
+
+            private string[,] Answers = new string[3, 3]{{"Человек", "Брандлмуха", "Кхаджит"},
+                                             {"Победить Аразота", "Стать богатым", "Найти боевых товарищей"},
+                                           {"Я отличный воин", "Я добротный маг", "Я могу работать в кузнице"}};
+
+
+
+            public void StartGame()
+            {
+                Console.WriteLine("Совершенно очевидно, что мы не берём в наш орден кого попало. По этому заполни вот эту анкету, " +
+                                  "и мы примем решение, брать тебя или нет");
+
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.WriteLine(Question[i]);
+                    for (int k = 0; k < Answers.Length/(Answers.Rank+1); k++)
+                    {
+                        Console.WriteLine($"[{k}]>{Answers[i, k]}");
+                    }
+                    Console.ReadLine();
+                    isDoorOpened[i] = true;
+                }
+
+            }
+        }
